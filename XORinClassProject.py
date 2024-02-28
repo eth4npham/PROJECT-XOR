@@ -1,3 +1,4 @@
+import math
 characters = [
     # lowercase characters
 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
@@ -48,6 +49,31 @@ def XORonSentence(sentence,key):
         esentence += XORonLetter(sentence[i], key[i])
 
     return esentence
+
+def generateKey (message, key):
+
+
+    if (len(message)) == len(key):
+        return key
+
+    elif len(message)< len(key):
+
+        return key[0:len(message)]
+
+    else: 
+        tempKey = ""
+
+        repitions = Math.floor(len(message)/len(key))
+        remainder = len(message) % len(key)
+
+        for i in range(repitions):
+            tempKey += key
+
+        tempKey += key[0:remainder]
+
+        return tempKey
+
+print(generateKey("hello","world"))
 
 print(XORonSentence("hello","world"))
 print (XORonSentence("rkAan","world"))
